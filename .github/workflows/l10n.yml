@@ -8,7 +8,7 @@ jobs:
       endsWith(github.repository, '/git-po') ||
       contains(github.head_ref, 'l10n') ||
       contains(github.ref, 'l10n')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     permissions:
       pull-requests: write
     steps:

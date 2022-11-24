@@ -8,7 +8,7 @@ env:
 jobs:
   ci-config:
     name: config
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     outputs:
       enabled: ${{ steps.check-ref.outputs.enabled }}${{ steps.skip-if-redundant.outputs.enabled }}
     steps:
@@ -224,10 +224,10 @@ jobs:
         vector:
           - jobname: linux-clang
             cc: clang
-            pool: ubuntu-latest
+            pool: ubuntu-22.04
           - jobname: linux-sha256
             cc: clang
-            pool: ubuntu-latest
+            pool: ubuntu-22.04
           - jobname: linux-gcc
             cc: gcc
             cc_package: gcc-8
@@ -245,16 +245,16 @@ jobs:
             pool: macos-latest
           - jobname: linux-gcc-default
             cc: gcc
-            pool: ubuntu-latest
+            pool: ubuntu-22.04
           - jobname: linux-leaks
             cc: gcc
-            pool: ubuntu-latest
+            pool: ubuntu-22.04
           - jobname: linux-asan
             cc: gcc
-            pool: ubuntu-latest
+            pool: ubuntu-22.04
           - jobname: linux-ubsan
             cc: gcc
-            pool: ubuntu-latest
+            pool: ubuntu-22.04
     env:
       CC: ${{matrix.vector.cc}}
       CC_PACKAGE: ${{matrix.vector.cc_package}}
@@ -291,7 +291,7 @@ jobs:
           image: fedora
     env:
       jobname: ${{matrix.vector.jobname}}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     container: ${{matrix.vector.image}}
     steps:
     - uses: actions/checkout@v1
@@ -344,7 +344,7 @@ jobs:
     if: needs.ci-config.outputs.enabled == 'yes'
     env:
       jobname: Documentation
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v2
     - run: ci/install-dependencies.sh
