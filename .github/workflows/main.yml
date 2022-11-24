@@ -231,11 +231,11 @@ jobs:
           - jobname: linux-gcc
             cc: gcc
             cc_package: gcc-8
-            pool: ubuntu-20.04
+            pool: ubuntu-22.04
           - jobname: linux-TEST-vars
             cc: gcc
             cc_package: gcc-8
-            pool: ubuntu-20.04
+            pool: ubuntu-22.04
           - jobname: osx-clang
             cc: clang
             pool: macos-latest
